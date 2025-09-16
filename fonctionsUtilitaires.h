@@ -9,13 +9,19 @@
 #define FONCTIONSUTILITAIRES_H
 
 #include <array>
+
+enum ValeurGrille
+{
+  VIDE, ROND, CROIX
+};
+
 const int NB_LIGNE
 {
     3
 };
 const int NB_COLONNE
 {
-    2
+    3
 };
 
 
@@ -24,9 +30,10 @@ const int NB_COLONNE
 
 
 
-void initialiseGrille(std::array<std::array<ValeurGrille, NB_COLONNE>, NB_LIGNE > p_grille); 
+void initialiseGrille(std::array<std::array<ValeurGrille, NB_COLONNE>, NB_LIGNE >& p_grille);
 void afficheGrille(std::array<std::array<ValeurGrille, NB_COLONNE>, NB_LIGNE >& p_grille);
-void metUnPionSurLaGrille(std::array<std::array<ValeurGrille, NB_COLONNE>, NB_LIGNE >& p_grille, ValeurGrille* p_joueur);
+void metUnPionSurLaGrille(std::array<std::array<ValeurGrille, NB_COLONNE>, NB_LIGNE >& p_grille, ValeurGrille& p_joueur);
+bool testeFinJeu(std::array<std::array<ValeurGrille, NB_COLONNE>, NB_LIGNE >& p_grille);
 
 #endif /* FONCTIONSUTILITAIRES_H */
 

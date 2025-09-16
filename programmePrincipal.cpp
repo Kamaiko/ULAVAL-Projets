@@ -10,6 +10,7 @@
  * \version 0.1
  */
 
+#include <iostream>
 #include "fonctionsUtilitaires.h"
 
 using namespace std;
@@ -27,6 +28,6 @@ int main ()
       metUnPionSurLaGrille (grilleDeJeu, joueur); 
       afficheGrille (grilleDeJeu); 
     }
-  while (testeFinJeu (grilleDeJeu));
+  while (!testeFinJeu (grilleDeJeu));
   return 0;
 }

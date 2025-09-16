@@ -9,18 +9,12 @@
 #include "fonctionsUtilitaires.h"
 using namespace std;
 
-enum ValeurGrille
-{
-  VIDE, ROND, CROIX
-};
-
 /**
  * 
  * 
  */
 void initialiseGrille (std::array<std::array<ValeurGrille, NB_COLONNE>, NB_LIGNE >& p_grille)
 {
-  int i,j;
   for (int i = 0; i < NB_LIGNE; i++)
     {
       for (int j = 0; j < NB_COLONNE; j++)
@@ -41,7 +35,7 @@ void afficheGrille (std::array<std::array<ValeurGrille, NB_COLONNE>, NB_LIGNE >&
     {
       for (int j = 0; j < NB_COLONNE; j++)
         {
-          switch (p_grille[j][i])
+          switch (p_grille[i][j])
             {
               case VIDE:
                 cout << "_ ";
@@ -67,7 +61,7 @@ void afficheGrille (std::array<std::array<ValeurGrille, NB_COLONNE>, NB_LIGNE >&
  * @param p_grille grille du jeu
  * @param p_joueur joueur qui joue
  */
-void metUnPionSurLaGrille (array<std::array<ValeurGrille, NB_COLONNE>, NB_LIGNE >& p_grille, ValeurGrille *p_joueur)
+void metUnPionSurLaGrille (array<std::array<ValeurGrille, NB_COLONNE>, NB_LIGNE >& p_grille, ValeurGrille &p_joueur)
 {
   bool saisieCorrecte = false;
   cout << "Numeros de ligne et de colonne: ";
@@ -89,11 +83,11 @@ void metUnPionSurLaGrille (array<std::array<ValeurGrille, NB_COLONNE>, NB_LIGNE 
           else
             {
               saisieCorrecte = true;
-              p_grille[ligne][colonne] = *p_joueur; //ajouter les colonnes
-              if (*p_joueur == ROND)
-                *p_joueur = CROIX;
+              p_grille[ligne][colonne] = p_joueur; //ajouter les colonnes
+              if (p_joueur == ROND)
+                p_joueur = CROIX;
               else
-                *p_joueur = ROND;
+                p_joueur = ROND;
             }
         }
       else
@@ -117,7 +111,7 @@ bool testeFinJeu (array<array<ValeurGrille, NB_COLONNE>, NB_LIGNE >& p_grille)
 {
   ValeurGrille joueurGagnant; /* pour connaitre quel est le gagnant ie soit CROIX soit ROND */
   bool gagne = false;
-  bool finDuJeu = false; 
+  bool finDuJeu = true; 
 
   /* Teste s'il y a un gagnant */
   /* L'algorithme utilise est le plus facile mais n'est pas le plus efficace
@@ -187,9 +181,10 @@ bool testeFinJeu (array<array<ValeurGrille, NB_COLONNE>, NB_LIGNE >& p_grille)
             }
         }
     }
-  if (finDuJeu&!gagne)
+  if (finDuJeu && !gagne)
     {
       cout << "aucun gagnant!";
     }
 
+  return finDuJeu || gagne;
 }
