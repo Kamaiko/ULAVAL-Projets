@@ -4,7 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>fonctionsUtilitaires.h</itemPath>
+      <itemPath>validationFormat.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -13,8 +13,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>fonctionsUtilitaires.cpp</itemPath>
-      <itemPath>programmePrincipal.cpp</itemPath>
+      <itemPath>validationFormat.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -34,25 +33,33 @@
       <toolsSet>
         <compilerSet>default</compilerSet>
         <dependencyChecking>true</dependencyChecking>
-        <rebuildPropChanged>true</rebuildPropChanged>
+        <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
         <ccTool>
-          <warningLevel>2</warningLevel>
+          <incDir>
+            <pElem>/usr/src/gtest/include</pElem>
+          </incDir>
         </ccTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibLibItem>gtest_main</linkerLibLibItem>
+            <linkerLibLibItem>gtest</linkerLibLibItem>
+            <linkerLibStdlibItem>PosixThreads</linkerLibStdlibItem>
+            <linkerLibFileItem>validationFormatTesteur.o</linkerLibFileItem>
+          </linkerLibItems>
+        </linkerTool>
       </compileType>
-      <item path="fonctionsUtilitaires.cpp" ex="false" tool="1" flavor2="0">
+      <item path="validationFormat.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="fonctionsUtilitaires.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="programmePrincipal.cpp" ex="false" tool="1" flavor2="0">
+      <item path="validationFormat.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
         <compilerSet>default</compilerSet>
         <dependencyChecking>true</dependencyChecking>
-        <rebuildPropChanged>true</rebuildPropChanged>
+        <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
         <cTool>
@@ -68,11 +75,9 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="fonctionsUtilitaires.cpp" ex="false" tool="1" flavor2="0">
+      <item path="validationFormat.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="fonctionsUtilitaires.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="programmePrincipal.cpp" ex="false" tool="1" flavor2="0">
+      <item path="validationFormat.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>
